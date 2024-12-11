@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="800px" height="800px"></canvas>
+
+    <script>
+
+        const canvas = document.getElementById("canvas");
+        canvas.style.backgroundColor= "gray";
+
+        const ctx = canvas.getContext("2d");
+
+        const x = 75;
+        const y = 75;
+        const r = 50;
+        const alfa = -90;
+
+        const a = Math.cos(alfa) * r;
+        const b = Math.sin(alfa) * r;
+        
+
+        
+        ctx.beginPath();
+        ctx.arc(x,y,r, a, b);
+        ctx.stroke();
+
+        /* ctx.beginPath();
+        ctx.fillRect(20, 20, 100, 100);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(500, 99);
+        ctx.lineTo(600, 99);
+        ctx.lineTo(550,15);
+        ctx.fill();
+ */
+
+    </script>
+</body>
+</html>

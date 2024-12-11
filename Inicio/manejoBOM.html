@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo BOM</title>
+</head>
+<body>
+    
+    <button onclick="loc()">Google</button>
+    <button onclick="confirmacion()">Confirmar...</button>
+    <button onclick="pedirInfo()">Pedir info...</button>
+
+    <script>
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+
+        var x = document.getElementById("demo");
+        document.write("<br>Ventana Interna Navegador: " + w + " x " + h);
+
+        var res = screen.width + " x " + screen.height;
+        document.write("<br> Res: " + res);
+
+        var so = navigator.platform;
+        document.write("<br> Sistema operativo del usuario : " + so);
+
+        function loc(){
+            window.location.assign("https://www.chrome.com");
+        }
+
+        function confirmacion(){
+            var txt;
+
+            if(confirm("Presiona un boton")){
+                txt = "Has aceptado";
+            }else{
+                txt = "Has cancelado";
+            }
+            document.write("<br>" + txt);
+        }
+
+        function pedirInfo(){
+            var txt;
+            var persona = prompt("Nombre?:", "Marcos");
+            if(persona == null || persona == ""){
+                txt = "El usuario ha cancelado ";
+            } else {
+                txt = "Hola " + persona + " que tal?";
+            }
+                document.write("<br />" + txt);
+        }
+            
+        
+    </script>
+</body>
+</html>

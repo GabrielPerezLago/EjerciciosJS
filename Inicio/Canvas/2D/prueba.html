@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prueba</title>
+</head>
+<body>
+    
+    <canvas id="canvas" width="500px" height="500px">
+
+    </canvas>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+
+        const ctx = canvas.getContext("2d");
+
+        /* ctx.fillRect(19, 54, 600, 2); */
+        ctx.beginPath();
+        ctx.moveTo(5, 100);
+        ctx.lineTo(200, 70);
+        ctx.stroke();   
+
+        ctx.beginPath();
+        ctx.arc(100, 100, 0.5, 0, Math.PI * 2);
+        ctx.stroke();
+    </script>
+
+</body>
+</html>

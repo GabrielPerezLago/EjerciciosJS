@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrastrar Imagen</title>
+    
+</head>
+<body>
+    <img src="./img/rana.jpg" id="imagen">
+    <script>
+        const imagen = document.getElementById("imagen");
+        
+        imagen.onmousedown =  function(event){
+            imagen.style.position = "absolute";
+            imagen.style.zIndex = 1000;
+
+            /* document.body.append(imagen); */
+
+            function  moverA(pageX, pageY){
+                imagen.style.left = pageX - imagen.offsetWidth / 2 + 'px';
+                imagen.style.top = pageY - imagen.offsetHeight / 2 + 'px';
+            }
+
+            moverA(event.pageX, event.pageY);
+
+            document.onmousemove = function (event){
+                moverA(event.pageX, event.pageY);
+            }
+
+            imagen.onmouseup = function(){
+                document.onmousemove = null;
+                imagen.onmouseup = null
+            }
+            
+            imagen.ondragstart = function(){
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

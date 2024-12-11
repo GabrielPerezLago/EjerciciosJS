@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones Flecha</title>
+</head>
+<body>
+    <script>
+        /* Funcion Tradicional */
+        function hola(){
+            return "hola1";
+        }
+        document.write(hola() + "<br>");
+
+        /* Funcion Anonima */
+        var hola;
+        hola = function(){
+            return "hola2";
+        };
+        document.write(hola());
+
+        /* Funciones Flecha */
+
+        hola = () => {return "hola3";}
+        document.write("<br>" + hola());
+
+        hola = () => "hola4";
+        document.write("<br>" + hola());
+
+        var nombre = "Pepe";
+        saludar = saludo => saludo + nombre;
+        document.write("<br>" + saludar("Hola"));
+
+        sumar = (x,y) => x + y;
+        document.write("<br>" + sumar(6,10));
+
+        multiplicar = (x,y) => {
+            document.write("<br> Resultado: " );
+            return x*y;
+        }
+        document.write("<br>" + multiplicar(2,6));
+    </script>
+</body>
+</html>

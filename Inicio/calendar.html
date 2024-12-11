@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+</head>
+<body>
+    <h2>Selecciona una Fecha:</h2>
+    <input type="date" id="fecha" onchange="calendar()"  >
+    <script>
+
+        function fechaActual(){ 
+            const fechaActual = new Date();
+            const dia = fechaActual.getDate().toString().padStart(2,"0");
+            const mes = (fechaActual.getMonth() + 1).toString().padStart(2,"0");
+            const ano = fechaActual.getFullYear();
+
+            return `${ano}-${mes}-${dia}`;
+        }
+
+        /*const inputFecha = document.getElementById("fecha");*/
+
+       /* inputFecha.addEventListener('change', function(){
+            const fechaSeleccionada = inputFecha.value;
+            console.log("Fecha Seleccioanda: " + fechaSeleccionada);
+        })*/
+
+        const inputFecha = document.getElementById("fecha");
+        inputFecha.value = fechaActual();
+        inputFecha.min = fechaActual();
+        
+        function calendar(){
+            const fechaSeleccionada = inputFecha.value;
+            console.log("Fecha Seleccioanda: " + fechaSeleccionada);
+        }
+
+        
+    </script>
+</body>
+</html>

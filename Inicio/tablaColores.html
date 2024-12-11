@@ -1,0 +1,47 @@
+<!-- Gabriel Pérez Lago -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Colores</title>
+    <!-- Estilos para la tabla  -->
+    <style>
+    
+        td, th{
+            border: 1px solid black;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Tabla de colores  -->
+    <table>
+        <caption align="bottom">Titulo Tabla</caption>
+        <tr>
+            <th colspan="3">Mi Tabla</th>
+        </tr>
+        <tr>
+            <th>Col1</th>
+            <th>Col2</th>
+            <th>Col3</th>
+        </tr>
+        <tr>
+            <td style="background-color: red;">   </td>
+            <td colspan="2" rowspan="2" style="background-color: blue;">   </td>
+        </tr>
+        <tr>
+            <td style="background-color: black;">   </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="background-color: yellow;">   </td>
+            <td rowspan="2" style="background-color: green;">  </td>
+            
+        </tr>
+        <tr>
+            <td style="background-color: black;">   </td>
+            <td style="background-color: black;">   </td>
+        </tr>
+    </table>
+</body>
+</html>

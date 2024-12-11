@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Circulo</title>
+</head>
+<body>
+    <form action="" method="get">
+        Eje X: <input type="number" name="" id="ejeX">
+        Eje Y: <input type="number" name="" id="ejeY">
+        Radio: <input type="number" name="" id="radio">
+        Angulo Inicialº: <input type="number" name="" id="inicio">
+        Angulo Finalº: <input type="number" name="" id="fin">
+        <input type="button" value="Enviar" onclick="printCirculo()">
+    </form>
+    <canvas style="border: 1px solid black; margin: 10px;" id="canvas" width="500px" height="500px"></canvas>
+
+    <script>
+        function printCirculo(){
+            const canvas = document.getElementById("canvas");
+            const x = document.getElementById("ejeX").value;
+            const y = document.getElementById("ejeY").value;
+            const r = document.getElementById("radio").value;
+            const init = document.getElementById("inicio").value;
+            const end = document.getElementById("fin").value;
+            const ctx = canvas.getContext("2d");
+            
+            ctx.clearRect(0,0, 500, 500);
+            ctx.beginPath();
+            ctx.arc(x, y, r, init, end, false);
+            ctx.stroke();
+            
+        }
+    </script>
+</body>
+</html>

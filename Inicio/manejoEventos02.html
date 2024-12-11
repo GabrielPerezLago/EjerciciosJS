@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Manejo Eventos 2</title>
+</head>
+<body>
+    <h1 onclick="this.innerHTML='Adios!'"> Haz click aqui</h1>
+    <h1 onclick="cambiarTexto01(this)"> Haz click aqui</h1>
+    <h1 id="prueba" onclick="cambiarTexto02()"> Haz click aqui</h1>
+
+    <script>
+        function cambiarTexto01(id){
+            id.innerHTML = "Adios!!";
+        }
+
+        function cambiarTexto02(){
+            document.getElementById("prueba").innerHTML = "Adios!!";
+        }
+    </script>
+</body>
+</html>

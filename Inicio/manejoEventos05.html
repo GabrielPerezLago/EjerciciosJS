@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo Eventos 5</title>
+</head>
+<body>
+    <div onmousedown="mDown(this)" onmouseup="mUp(this)" style="background-color:#D94A38;width:90px;height:20px;padding:40px;">Haz click aqui</div>
+
+    <script>
+        function mDown(obj){
+            obj.style.backgroundColor = "#1ec5e5";
+            obj.innerHTML = "Suelta...";
+        }
+
+        function mUp(obj){
+            obj.style.backgroundColor = "#D94A38";
+            obj.innerHTML = "Gracias...";
+        }
+    </script>
+</body>
+</html>

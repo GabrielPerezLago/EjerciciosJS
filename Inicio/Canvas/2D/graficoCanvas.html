@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafico Canvas</title>
+    <style>
+        canvas{
+           border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+
+    <script>
+        
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        const x = canvas.width / 4;
+        const y = canvas.height / 1.5 ;
+
+        const min = 500;
+        const max = 500;
+
+        function printEjes(){
+            
+            ctx.beginPath();
+            ctx.fillRect(x,y);
+            ctx.fill();
+        }
+
+        printEjes();
+
+    </script>
+</body>
+</html>

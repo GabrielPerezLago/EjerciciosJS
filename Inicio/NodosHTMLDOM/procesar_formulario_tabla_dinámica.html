@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Contactos</title>
+  <style>
+    /* Estilo general para el cuerpo de la página */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    /* Estilo para el formulario (fieldset) */
+    fieldset {
+      border: 2px solid #ddd;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    /* Estilo para la leyenda dentro del fieldset */
+    legend {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    /* Estilo para las etiquetas de los campos del formulario */
+    label {
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+
+    /* Estilo para los campos de entrada */
+    input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+
+    /* Estilo para los botones */
+    button {
+      padding: 10px 15px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    /* Espaciado entre los botones */
+    button:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    /* Estilo general para las tablas */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    /* Estilo para las celdas de las tablas */
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    /* Estilo para las cabeceras de la tabla */
+    th {
+      background-color: #f4f4f4;
+    }
+
+    /* Efecto hover para las filas de la tabla */
+    tr:hover {
+      background-color: #767575;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    let contactos = []; // Array para almacenar los contactos ingresados
+
+    // Obtener referencia al cuerpo del documento
+    const body = document.body;
+
+    // Crear el formulario dentro de un fieldset
+    const fieldset = document.createElement("fieldset");
+    const legend = document.createElement("legend");
+    legend.textContent = "Datos del Contacto"; // Título del formulario
+    fieldset.appendChild(legend);
+
+    // Crear los inputs y labels del formulario
+    const inputs = ["Nombre", "Apellidos", "Teléfono"].map((labelText, index) => {
+      // Crear el label para el campo
+      const label = document.createElement("label");
+      label.textContent = `${labelText}:`; // Texto del label
+
+      // Crear el input para el campo
+      const input = document.createElement("input");
+      input.id = `input-${labelText.toLowerCase()}`; // Asignar un id único al input
+
+      // Agregar el label y el input al formulario
+      fieldset.appendChild(label);
+      fieldset.appendChild(input);
+
+      return input; // Devolver el input para incluirlo en el array
+    });
+
+    // Crear el botón para agregar contactos
+    const addButton = document.createElement("button");
+    addButton.textContent = "Insertar"; // Texto del botón
+    addButton.addEventListener("click", () => {
+      // Obtener los valores de los inputs
+      const [nombre, apellidos, telefono] = inputs.map(input => input.value.trim());
+
+      // Validar que todos los campos estén completos
+      if (nombre && apellidos && telefono) {
+        // Agregar el contacto como un objeto al array
+        contactos.push({ nombre, apellidos, telefono });
+        alert("Contacto añadido correctamente"); // Mensaje de confirmación
+        inputs.forEach(input => (input.value = "")); // Limpiar los campos del formulario
+      } else {
+        alert("Por favor, rellena todos los campos."); // Mostrar error si faltan campos
+      }
+    });
+    fieldset.appendChild(addButton); // Agregar el botón al formulario
+
+    // Crear el botón para borrar los campos del formulario
+    const clearButton = document.createElement("button");
+    clearButton.textContent = "Borrar"; // Texto del botón
+    clearButton.addEventListener("click", () => {
+      inputs.forEach(input => (input.value = "")); // Limpiar los campos del formulario
+    });
+    fieldset.appendChild(clearButton); // Agregar el botón al formulario
+
+    // Agregar el fieldset al cuerpo del documento
+    body.appendChild(fieldset);
+
+    // Crear el botón para procesar y mostrar los contactos
+    const processButton = document.createElement("button");
+    processButton.textContent = "Procesar"; // Texto del botón
+    processButton.addEventListener("click", () => {
+      // Verificar si hay contactos en el array
+      if (contactos.length === 0) {
+        alert("No hay contactos para mostrar."); // Mostrar error si no hay contactos
+      } else {
+        crearTabla(); // Generar la tabla con los contactos
+      }
+    });
+    body.appendChild(processButton); // Agregar el botón al cuerpo del documento
+
+    // Crear un contenedor para la tabla
+    const tableContainer = document.createElement("div");
+    body.appendChild(tableContainer); // Agregar el contenedor al cuerpo del documento
+
+    // Función para generar la tabla a partir del array de contactos
+    function crearTabla() {
+      tableContainer.innerHTML = ""; // Limpiar cualquier tabla existente
+
+      // Crear la estructura de la tabla
+      const table = document.createElement("table");
+      const thead = document.createElement("thead");
+      const tbody = document.createElement("tbody");
+
+      // Crear la fila de encabezados
+      const headers = ["Nombre", "Apellidos", "Teléfono"];
+      const headerRow = document.createElement("tr");
+      headers.forEach(header => {
+        const th = document.createElement("th"); // Crear cada celda del encabezado
+        th.textContent = header; // Asignar texto al encabezado
+        headerRow.appendChild(th); // Agregar la celda a la fila de encabezados
+      });
+
+      thead.appendChild(headerRow); // Agregar la fila de encabezados al thead
+      table.appendChild(thead); // Agregar el thead a la tabla
+
+      // Crear las filas para cada contacto
+      contactos.forEach(contacto => {
+        const row = document.createElement("tr"); // Crear una nueva fila
+        Object.values(contacto).forEach(value => {
+          const td = document.createElement("td"); // Crear una celda
+          td.textContent = value; // Asignar el valor a la celda
+          row.appendChild(td); // Agregar la celda a la fila
+        });
+        tbody.appendChild(row); // Agregar la fila al tbody
+      });
+
+      table.appendChild(tbody); // Agregar el tbody a la tabla
+      tableContainer.appendChild(table); // Agregar la tabla al contenedor
+    }
+  </script>
+</body>
+</html>

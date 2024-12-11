@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo Areas</title>
+</head>
+<body>
+    <h1>Calculo de Areas : Cuadrado, Circulo y Triangulo</h1>
+
+    <!-- Area del Cuadrado con formulario -->
+    <h2>Area del Cuadrado</h2>
+    <legend>
+        <label for="ladoCuadrado">Lado Cuadrado: </label>
+        <input id="ladoCuadrado" type="number" name="ladoCuadrado" min="1">
+        <input type="button" onclick="areaCuadrado()" value="Enviar" > 
+        <p id="resultadoCuadrado"></p>
+    </legend>
+    <script>
+        function areaCuadrado(lado){
+            lado = document.getElementById("ladoCuadrado").value;
+            var area = lado*lado;
+            document.getElementById("resultadoCuadrado").innerHTML = "El area del Cuadrado es :" + area;
+        }
+    </script>
+
+    <!--Area del circulo con formulario-->
+    <h2>Area del Circulo</h2>
+    <legend>
+        <label for="radioCirculo">Dame el radio del Circulo:</label>
+        <input type="number" id="radioCirculo" name="radioCirculo" min="1">
+        <input type="button" onclick="areaCirculo()" value="Enviar">
+        <p id="resultadoCirculo"></p>
+    </legend>
+    <script>
+        function areaCirculo(radio){
+            radio = document.getElementById("radioCirculo").value;
+            diametro = radio*radio;
+            area = Math.PI*diametro;
+            document.getElementById("resultadoCirculo").innerHTML= "El area del Circulo es: " + area;
+        }
+    </script>
+
+    <!-- Area del Triangulo con formularios -->
+    <legend>
+        <h2>Area del Triangulo</h2>
+        <label for="baseTriangulo">Dame la base del Triangulo</label>
+        <input type="number" id="baseTriangulo" name="baseTriangulo" min="1">
+        <br>
+        <br>
+        <label for="alturaTriangulo">Dame la altura del Triangulo</label>
+        <input type="number" id="alturaTriangulo" name="alturaTriangulo" min="1">
+        <input type="button" onclick="areaTriangulo()" value="Enviar">
+        <p id="resultadoTriangulo"></p>
+    </legend>
+    <script>
+        function areaTriangulo(base, altura){
+            base = document.getElementById("baseTriangulo").value;
+            altura = document.getElementById("alturaTriangulo").value;
+            var area = base*altura/2;
+            document.getElementById("resultadoTriangulo").innerHTML = "El area del triangulo es: " + area;
+        }
+        
+    </script>
+</body>
+</html>

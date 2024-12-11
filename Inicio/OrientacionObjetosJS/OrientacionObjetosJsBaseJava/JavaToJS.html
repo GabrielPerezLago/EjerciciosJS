@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVA to JS</title>
+</head>
+<body>
+    <p id="p"></p>
+    <script>
+        var usuario = {
+            id : 1,
+            nombre : "Pablo",
+            apellidoUno : "Piñeiro",
+            apellidoDos : "Lopez",
+
+            get getId(){
+                return this.id;
+            },
+
+            set setId(id){
+                this.id = id;
+            },
+
+            get getNombre(){
+                return this.nombre;
+            },
+            
+            set setNombre(nombre){
+                this.nombre = nombre;
+            },
+
+            get getApellidoUno(){
+                return this.apellidoUno;
+            },
+            
+            set setApellidoUno(apellidoUno){
+                this.apellidoUno = apellidoUno;
+            },
+
+            get getApellidoDos(){
+                return this.apellidoDos;
+            },
+            
+            set setApellidoDos(apellidoDos){
+                this.apellidoDos = apellidoDos;
+            },
+
+            toString :  {get : function()  {
+                return "Id: " + getId + ", Nombre: " + getNombre ;  
+            }}
+        };
+
+        var coche ={
+            id : 12,
+            marca: "bmw",
+            modelo : "320d",
+            dueno : usuario.getId,
+            nombreDueno : "s",
+            
+            get getId(){
+                return this.id;
+            },
+
+            set setId(id){
+                this.id = id;
+            },
+
+            get getMarca(){
+                return this.marca;
+            },
+            
+            set setMarca(marca){
+                this.marca = marca;
+            },
+
+            get getModelo(){
+                return this.modelo;
+            },
+            
+            set setModelo(modelo){
+                this.modelo = modelo;
+            },
+
+            get getDueno(){
+                return this.dueno;
+            },
+            
+            set setDueno(dueno){
+                this.dueno = dueno;
+            }, 
+
+            get getNombreDueno(){
+                return this.nombreDueno;
+            },
+            
+            set setNombreDueno(nombreDueno){
+                this.nombreDueno = nombreDueno;
+            }
+            
+        };
+
+        Object.defineProperty(coche, "showDueno",{
+           get : function() {
+            if(getDueno == null){
+                setNombreDueno("No hay dueño definido");
+                return;
+            }
+
+            if(getDueno !== usuario.id){
+                setNombreDueno( "No hay dueño definido");
+            }else{
+                setNombreDueno(usuario.getNombre);
+            }
+            
+           }
+        });
+
+        document.getElementById("p").innerHTML = coche.nombreDueno;
+
+    </script>
+</body>
+</html>

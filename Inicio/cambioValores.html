@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de valores</title>
+</head>
+<body>
+    <script>
+        function changeValue(v, x, y){
+            
+            v = 5;
+            x = false;
+            y = 'Hola';
+
+            console.log(v);
+            console.log(x);
+            console.log(y);
+
+        }
+
+        v = 3;
+        x = true;
+        y = 'que tal?'; 
+
+        changeValue(v, x, y);
+        
+        console.log(v);
+        console.log(x);
+        console.log(y);
+
+        a = changeValue;
+        console.log(a);
+        a(2, true, 'kilo');
+        console.log(a)
+        
+    </script>
+</body>
+</html>

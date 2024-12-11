@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centrar Canvas</title>
+    <style>
+        *{
+            margin: 0;
+            
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="canvas" style="border: 1px solid black;" width="500px" height="500px"></canvas>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+
+        x = window.innerWidth;
+        y = window.innerHeight;
+
+        canvasX = canvas.width;
+        canvasY = canvas.height;
+
+        function posicionarCentro(){
+            
+            canvas.style.position = "absolute";
+            canvas.style.top = ((y - canvasY) / 2) + "px";
+            canvas.style.left = ((x - canvasX) /2) + "px";
+        }
+        
+        posicionarCentro();
+    </script>
+</body>
+</html>

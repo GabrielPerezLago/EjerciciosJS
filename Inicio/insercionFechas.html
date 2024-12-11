@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insercion de Fechas</title>
+</head>
+<body>
+    <h1>Inserción de Fechas</h1>
+
+    <form>
+        <label for="fecha">Fecha: </label>
+        <input type="text" id="fecha" name="fecha">
+        <br>
+        <input type="button" onclick="insFecha()" value="Enviar">
+    </form>
+    <script>
+        function insFecha(){
+            const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+            fecha = document.getElementById("fecha").value;
+            dateString = new Date(fecha);
+            if (esBisiesto(dateString.getFullYear())=== true){
+                if (dateString.getDay() <= 31 || (meses[dateString.getMonth(2)] == true && dateString.getDay() <= 29 )){
+                    document.write(meses[dateString.getMonth()] + " , día " + dateString.getDay() + " del año " + dateString.getFullYear());
+                } else{
+                    document.write("Error: El dia esta fuera de rango.");
+                }
+            } else{
+                if (dateString.getDay() <= 31 || (meses[dateString.getMonth(2)] == false && dateString.getDay() <= 28 )){
+                    document.write(meses[dateString.getMonth()] + " , día " + dateString.getDay() + " del año " + dateString.getFullYear());
+                } else{
+                    document.write("Error: El dia esta fuera de rango.");
+                }
+            }
+        }
+
+        function esBisiesto(ano){
+            bisiesto = ((ano % 4 === 0) && (ano % 100 === 0) || (ano % 400 === 0)) ? true : false;
+
+            return bisiesto;
+        
+        }
+    </script>
+</body>
+</html>

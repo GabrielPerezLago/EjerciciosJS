@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrastrar Imagen Dom</title>
+    <style>
+        #imagen {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="contenedor">
+        <img id="imagen" src="./img/rana.jpg" onmousedown="iniciarArrastre(event)">
+    </div>
+    <script>
+        let desplazamientoX = 0;
+        let desplazamientoY = 0;
+
+        function iniciarArrastre(evento){
+            if (evento.button !== 0) return;
+
+            evento.preventDefault();
+
+            const imagen = evento.target;
+
+            desplazamientoX = evento.pageX - (parseInt(imagen.style.left) || 0);
+            desplazamientoY = evento.pageY - (parseInt(imagen.style.top || 0));
+
+            imagen.onmousemove = moverImagen;
+            imagen.onmouseup = detenerArrastre;
+
+            moverImagen(evento);
+        }
+
+        function moverImagen(evento){
+            const imagen = evento.target;
+
+            if(evento.buttons !== 1){
+                detenerArrastre();
+                return;
+            }
+
+            imagen.style.left = `${evento.pageX - desplazamientoX}px`;
+            imagen.style.top = `${evento.pageY - desplazamientoY}px`;
+        }
+
+        function detenerArrastre(){
+            const imagen = document.getElementById("imagen");
+
+            imagen.onmousemove = null;
+            imagen.onmouseup = null;
+        }
+    </script>
+</body>
+</html>

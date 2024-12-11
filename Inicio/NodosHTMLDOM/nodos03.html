@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div>
+        <h1 id="id01">Ejemplo</h1>
+    </div>
+    <script>
+        var x = document.getElementById("id01").nodeName;
+        document.write("Nombre del nodo: " + x);
+
+        x = document.getElementById("id01").firstChild.nodeValue;
+        document.write("<br>Valor del nodo: " + x);
+
+        x = document.getElementById("id01").nodeType;
+        document.write("<br>Tipo del nodo: " + x);
+    </script>
+</body>
+</html>

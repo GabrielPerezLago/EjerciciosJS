@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ejemplo Atributos</title>
+    <script>
+        function listadoAtributos(){
+            var parrafo = document.getElementById("parrafo");
+            var resultado = document.getElementById("result");
+            if(parrafo.hasAttributes()){
+                var attr = parrafo.attributes;
+                var salida = "";
+                for(var i=0; i<attr.length; i++){
+                    salida += attr[i].name + "->" + attr[i].value;
+                }
+                resultado.value = salida;
+            } else {
+                resultado.value = "No hay atributos a mostrar";
+            }
+        }
+    </script>
+</head>
+<body>
+    <p id="parrafo" style="color: lightgreen;">Parrafo de Ejemplo</p>
+    <input type="button" value="Muestra el nombre cada atributo y su valor" onclick="listadoAtributos()">
+    <input id="result" type="text" value="">
+</body>
+</html>

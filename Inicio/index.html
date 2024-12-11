@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba</title>
+    <!-- Apartado de estilos -->
+    <style>
+
+        body{
+            background-color: rgb(149, 119, 101);
+        }
+
+        h1{
+            text-align: center;
+            color: orangered;
+            font-size: xxx-large;
+        }
+
+        dl{
+            font-size: xx-large;
+        }
+        dd{
+            color: red;
+        }
+
+        hr{
+            color: white;
+            background-color: rgb(128, 58, 0);
+            width: 600px;
+            height: 20px;
+        }
+
+        table, tr, td, th{
+            border: 1px solid black;
+        }
+
+        .bloque {
+            background-color: black;
+            color: white;
+            margin: 20px;
+            padding: 20px;
+        }
+        .grande{
+            font-size: 36px;
+        }
+
+        #parrafo1{
+            background-color: lightblue;
+            color: black;
+            padding: 40px;
+            text-align: left;
+        }
+
+        .estilo1{
+            background-color: tomato;
+            color: white;
+            padding: 10px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!-- Titulo -->
+    <h1 id="titulo">Esto es una prueba</h1>
+    <!-- Prueba de imagen -->
+     <img src="img/sin.jpeg">
+    <!-- Esto es una prueba de ciertas etiquetas -->
+    <dl>
+        <dt>Comida</dt>
+            <dd>Patatas</dd>
+            <dd>Pan</dd>
+            <dd>Huevos</dd>
+        <dt>Ropa</dt>
+    </dl>
+<hr>
+<hr>
+        <!-- Esto es pruaba de estilos y etiquetas -->
+    <pre style="color: blue;"> 
+        Hola 
+        <em>Diego</em> <small>Guapo</small>
+        Nah es <ins>coña</ins>
+        <strong>Feo</strong>
+    </pre>
+    <!-- Probando las tablas -->
+
+    <table>
+        <caption align="bottom">Aqui el titulo</caption>
+        <tr>
+            <th colspan="2">Tabla Persona</th>
+        </tr>
+        <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+        </tr>
+        <tr>
+            <td>Pepe</td>
+            <td>26</td>
+        </tr>
+        <tr>
+            <td>Ana</td>
+            <td>41</td>
+        </tr>
+    
+    </table>
+<br>
+    <!-- Ejercicio de tabla con combinacion de celdas -->
+    <table>
+        <caption align="bottom">Titulo Tabla</caption>
+        <tr>
+            <th colspan="3">Mi Tabla</th>
+        </tr>
+        <tr>
+            <th>Cab1</th>
+            <th>Cab2</th>
+            <th>Cab3</th>
+        </tr>
+        <tr>
+            <td style="background-color: red;">   </td>
+            <td colspan="2" rowspan="2" style="background-color: blue;">   </td>
+        </tr>
+        <tr>
+            <td style="background-color: black;">   </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="background-color: yellow;">   </td>
+            <td rowspan="2" style="background-color: green;">  </td>
+            
+        </tr>
+        <tr>
+            <td style="background-color: black;">   </td>
+            <td style="background-color: black;">   </td>
+        </tr>
+    </table>
+    <!-- Probando las etiquetas div y span -->
+    <div>
+        <p>London is the 
+            <span style="color: red;">capital city of 
+            England</span>
+            It is the most populous city in the United
+            Kindom
+            with a metropolitan area of over 13
+            million nhabitants.</p>
+            </div>
+        </p><p>Texto de prueba</p>
+    </div>
+    <!-- Probando las clases  -->
+    <div class="bloque">
+        <p class="grande">Londres</p>
+        <p>Londres es la capital de Inglaterra</p>
+    </div>
+    <!-- Probando id's y clases  -->
+    <pre id="parrafo1">Este parrafo tiene el id:
+        parrafo1 y ningun otro elemento
+        podra usar este ide</pre>
+    <pre class="estilo1">Este parrafo pertenece a la clase estilo1,
+        la cual puede ser usado por otros
+        elementos</pre>
+    <p class="estilo1">Este otro parrafo utiliza tambien la clase estilo1</p>
+    <!-- 
+    **Probando Hiprevinculos locales.  
+    **Este enlace me deberia llevar al 
+      titulo de la pagina directamente.
+    -->
+     <p><a href="#titulo">Volver al inicio</a></p>
+</body>
+</html>

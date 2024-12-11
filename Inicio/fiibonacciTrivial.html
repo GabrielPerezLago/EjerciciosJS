@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucle Fibonachi</title>
+</head>
+<body>
+    <h1>Sucision de Fibonachi</h1>
+    <!-- Formulario -->
+    <legend>
+        <label for="maxValue">Dame un valor maximo</label>
+        <input type="number" id="maxValue" name="maxValue" min="1">
+        <input type="button" onclick="sucesionFibonachi()" value="Enviar">
+    </legend>
+    <script>
+        /* la variable maxValue representa el valor maximo */
+        function sucesionFibonachi(maxValue){
+            maxValue = document.getElementById("maxValue").value;
+            let numero = 1 , numeroAnterior = 0, siguiente;
+
+            if(maxValue>1){
+                document.write(numeroAnterior+", ");
+            }
+            
+            for(var i=0; i<maxValue; i++){
+              siguiente = numero + numeroAnterior;
+              document.write(siguiente+ ", ");
+              numeroAnterior = numero;
+              numero = siguiente;                
+            }
+        }
+    </script>
+</body>
+</html>

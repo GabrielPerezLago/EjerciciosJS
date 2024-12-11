@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj Canvas</title>
+</head>
+<body>
+    
+    <canvas id="canvas" width="500" height="500"></canvas>
+
+    <script>
+
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        const centroX = canvas.width / 2;
+        const centroY = canvas.height / 2;
+        const radio = 150;
+
+        function dibujarCircunferencia(){
+            ctx.beginPath();
+            ctx.arc(centroX, centroY, radio, 0, Math.PI * 2);
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+
+
+        function dibujarLinea(angulo){
+            const anguloRadianes = (angulo * Math.PI) / 180;
+
+            
+            const x = centroX + radio * Math.cos(-anguloRadianes); 
+            const y = centroY + radio * Math.sin(-anguloRadianes);
+
+            mover = Array.from(anguloRadianes);
+
+            console.log(mover);
+
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x, radio);
+            ctx.strokeStyle = "red";
+            ctx.stroke();
+        }
+
+       
+
+        
+        dibujarCircunferencia(); 
+        dibujarLinea(90);
+    </script>
+</body>
+</html>

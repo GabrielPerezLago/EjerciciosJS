@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora Actual</title>
+</head>
+<body>
+    <!-- 
+        ** Mostrar Hora Actual por pantalla en un formato adecuado.
+        ** Actualizar la hora actual cada segundo.
+    -->
+    <script>
+        relojActulizado = setInterval(reloj, 100);
+        function reloj(){
+            horaActual = new Date()
+
+            hora = horaActual.getHours();
+            minutos = horaActual.getMinutes();
+            segundos = horaActual.getSeconds();
+
+            printReloj = hora + ':' + minutos + ':' + segundos;
+            
+            document.getElementById("reloj").innerHTML = printReloj;
+            
+        };
+
+        function hola(){
+            document.getElementById("hola").innerHTML = "hola";
+        }
+    </script>
+    <div id="reloj" style="font-size: 200px; text-align: center;">
+    </div>
+    <br>
+    <form>
+        <input type="button" onclick="hola()" value="Hola">
+    </form>
+    <p id="hola"></p>
+</body>
+</html>

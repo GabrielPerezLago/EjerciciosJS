@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Prueba Window.Print -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Window.Print</title>
+    <script>
+        function cambiarTexto(){
+            document.getElementById("prueba").innerHTML = "Otro texto";
+        }
+    </script>
+</head>
+<body>
+    <p id="prueba">Texto original</p>
+    <button type="button" onclick="cambiarTexto()">Cambiar Texto</button>
+    <br>
+    <script>document.write("<h2>Haciendo Pruebas...</h2>")</script>
+    <script>window.alert("hola");</script>
+    <script>window.print();</script>
+</body>
+</html>

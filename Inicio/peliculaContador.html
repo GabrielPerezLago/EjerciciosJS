@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelicula</title>
+</head>
+<body>
+    <h1>Estreno: 30/12/2024</h1>
+    <script>
+        const fechaEstreno = new Date(2024,11,30);
+        
+        contadorActualizado = setInterval(contador, 1000);
+
+        function contador(){
+            
+            fechaAhora = new Date();
+
+            cont = fechaEstreno.getTime() - fechaAhora.getTime();
+            
+            segundos = Math.floor((cont / 1000) % 60);
+            minutos = Math.floor((cont / 1000 / 60) % 60);
+            horas = Math.floor((cont / (1000 * 60 * 60)) % 24);
+            dias = Math.floor(cont / (1000 * 60 * 60 * 24));
+
+            contadorFuncional = dias + ":" + horas + ":" + minutos + ":" + segundos;
+            
+            document.getElementById("contador").innerHTML = contadorFuncional;
+            
+            
+        } 
+
+       
+    </script>
+    <div id="contador"></div>
+</body>
+</html>

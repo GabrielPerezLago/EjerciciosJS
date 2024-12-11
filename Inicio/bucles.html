@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucles</title>
+</head>
+<body>
+    <script>
+
+        for (i = 0; i < 5; i++){
+            if(i== 2){break;}
+            document.write(i + " ");
+        }
+        document.write("<br>");
+
+        for (i=0; i<5; i++){
+            if (i == 2){continue;}
+            document.write(i + " ");
+        }
+        document.write("<br>");
+
+        var coches = ["seat" , "bmw",  "pagani"];
+        for (marca of coches){
+            document.write(marca + " ");
+        }
+        document.write("<br>");
+
+        var cadena = "esto es una cadena papa";
+        for (c of cadena){
+            document.write(c + " ");
+        }
+
+        var x = 0;
+        while (x < 5){
+            document.write(x++ + " ");
+        }
+        document.write("<br>");
+
+        x = 0;
+        do{
+            if (x > 5) {break; }
+            document.write(++x + " ");
+        }while(true);
+
+    </script>
+</body>
+</html>

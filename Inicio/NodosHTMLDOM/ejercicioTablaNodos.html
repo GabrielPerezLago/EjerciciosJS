@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla nodos</title>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const numeros = [1,9,5,7,3,2,10,23];
+        const table = document.createElement("table");
+        const tr1 = document.createElement("tr");
+        const th = document.createElement("th");
+        
+    
+        /* createTextContent es lo mismo que .textContent */
+        th.textContent= "Numeros";
+        tr1.appendChild(th);
+        table.appendChild(tr1);
+        for (i=0; i<numeros.length; i++){
+           td = document.createElement("td");
+           tr = document.createElement("tr")
+          /*  n = document.createTextNode(numeros[i]);
+           td.appendChild(n); */
+           td.textContent = numeros[i];
+           tr.appendChild(td);
+           table.appendChild(tr);
+        }
+
+        document.body.appendChild(table);
+    </script>
+</body>
+</html>

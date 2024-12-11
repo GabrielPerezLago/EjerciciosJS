@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones Anonimas</title>
+</head>
+<body>
+    <script>
+        x = 5;
+        y = 10;
+
+        z = (function (x,y) { return x + y} (1,2));
+        document.write('<br>'+ z);
+        document.write('<br>'+ eval(x+y));
+
+        var cadena1 = '<br>Hola';
+        var cadena2 = ' y adios';
+        (function (str1, str2) {document.write(str1 +str2);} (cadena1, cadena2));
+    </script>
+</body>
+</html>

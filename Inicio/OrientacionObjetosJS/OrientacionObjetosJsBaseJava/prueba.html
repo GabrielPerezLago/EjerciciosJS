@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Plato{
+            id = "2";
+            descripcion = "";
+        };
+
+        class Empleado{
+            id = "1";
+            nombre = "gabriel";
+        };
+
+        class Comanda{
+            id = "1";
+            empleado = new Empleado();
+            plato = new Plato();
+
+            constructor(id, empleado, plato){
+                this.id = id;
+                this.empleado = empleado;
+                this.plato = plato;
+            }
+        };
+
+        class Cuenta extends Comanda{
+            id = "1";
+            precio ="50";
+            
+            constructor(idComanda, empleado, plato){
+                super(idComanda, empleado, plato);
+                  
+            };
+
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validar Datos</title>
+</head>
+<body>
+    <p>Introduzca un numero entre 50 y 100:</p>
+
+    <input id="dato" type="text">
+    <button type="button" onclick="miFuncion()">Comprobar valor</button>
+
+    <p id="err_txt"></p>
+
+    <script>
+        function miFuncion(){
+            var err_msg, x;
+            err_msg = document.getElementById("err_txt");
+            err_msg.innerHTML = "";
+            x = document.getElementById("dato").value;
+
+            try {
+                if(x == "") throw "No hay dato";
+                if(isNaN(x)) throw "El dato no es numero";
+                x = Number(x);
+                if(x < 50) throw "El numero es muy pequeño";
+                if(x > 100) throw "El numero es muy grande";
+            } catch (err) {
+                err_msg.innerHTML = "Error: " + err;
+            }finally {
+                document.getElementById("dato").value = "";
+            }
+        }
+    </script>
+</body>
+</html>

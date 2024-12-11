@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redimensionar Imagen</title>
+    <style>
+       
+        #cuadradito{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: black;
+            width: 10px;
+            height: 10px;
+            cursor: pointer;
+            
+        }
+        #contenedor {
+            display: inline-block;
+            position: relative;
+        }
+        #imagen{
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="contenedor">
+        <img src="./img/rana.jpg" id="imagen" width="200px" height="200px">
+        <div id="cuadradito" hidden></div>
+    </div>
+
+    <script>
+        const imagen = document.getElementById("imagen");
+        const cuadrado = document.getElementById("cuadradito");
+        window.addEventListener("keypress" ,(event) => {
+            const key = event.key;
+            if ( key == ['r']){
+
+            cuadrado.hidden = null;
+            cuadrado.onmousedown = function redimensionar(event){
+
+                function redimension(pageY, pageX){
+                
+                    imagen.style.height = pageY + 'px'
+                    imagen.style.width = pageX + 'px';
+
+                    cuadrado.style.left = pageX - cuadrado.offsetWidth / 2 + 'px';
+                    cuadrado.style.top = pageY - cuadrado.offsetHeight / 2 + 'px';
+                }
+
+                document.onmousemove = function(event){
+                    redimension(event.pageY, event.pageX);
+                }
+
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                    cuadrado.onmouseup = null;
+                    
+                }
+
+                imagen.ondragstart = function(){
+                    return false;
+                }
+            }
+        }
+    
+        });
+
+        window.addEventListener("keyup" , (event)=>{
+            const key = event.key;
+            if(key == ['r']){
+            cuadrado.hidden = true;
+            }
+        });
+
+        
+    </script>
+</body>
+</html>

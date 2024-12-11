@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Días entre Fechas</title>
+</head>
+<body>
+    <h1>Días entre Fechas</h1>
+    <form>
+        <label for="fechaUno">Fecha 1:</label>
+        <input type="text" id="fechaUno" name="fechaUno">
+        <br>
+        <label for="fechaDos">Fecha 2:</label>
+        <input type="text" id="fechaDos" name="fechaDos">
+        <br>
+        <input type="button" onclick="contarDias()" value="Procesar">
+    </form>
+
+    <script>
+        /* 
+        ** Las variables fUno y fDos equivalen e los comapos de fechaUno y fechaDos respectivamente.
+        */
+        function contarDias(){
+            fUno = document.getElementById("fechaUno").value;
+            fDos = document.getElementById("fechaDos").value;
+
+            
+        }
+    </script>
+</body>
+</html>

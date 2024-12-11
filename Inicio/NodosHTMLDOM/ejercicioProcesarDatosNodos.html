@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procesar Datos</title>
+    <style>
+        .form input{
+            margin: 10px;
+            width: 90%;
+            
+        }
+        .form input[type=button]{
+            max-width: 10%;
+            max-height: 100%;
+        }
+
+        .renderer{
+            margin: 20px;
+            width: 80px;
+            height: 40px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    
+    <script>
+        /* 
+        ** Fomulario 
+        ** 
+        */
+        const divFormulario = document.createElement("div");
+        
+        br = document.createElement("br");
+        const form = document.createElement("fieldset");
+        const legend = document.createElement("legend");
+        legend.textContent = "Datos Contacto"; 
+        // Nombre
+        const labelNombre = document.createElement("label");
+        labelNombre.setAttribute("for", "nombre");
+        labelNombre.textContent = "Nombre: ";
+
+
+        const inputNombre = document.createElement("input");
+        inputNombre.setAttribute("type", "text");
+        inputNombre.setAttribute("name", "nombre");
+        inputNombre.setAttribute("id", "nombre");
+        
+        // Apellido 
+        const labelApellido = document.createElement("label");
+        labelApellido.setAttribute("for", "apellido");
+        labelApellido.textContent = "Apellido: ";
+
+        const inputApellido = document.createElement("input");
+        inputApellido.setAttribute("type", "text");
+        inputApellido.setAttribute("name", "apellido");
+        inputApellido.setAttribute("id", "apellido");
+
+        //Telefono
+
+        const labelTelefono = document.createElement("label");
+        labelTelefono.setAttribute("for", "tlf");
+        labelTelefono.textContent = "Telefono: ";
+
+        const inputTelefono = document.createElement("input");
+        inputTelefono.setAttribute("type", "tel");
+        inputTelefono.setAttribute("name", "tlf");
+        inputTelefono.setAttribute("id", "tlf");
+
+        // Botones
+        // Importar
+        const importButton = document.createElement("input");
+        importButton.setAttribute("type", "button");
+        importButton.setAttribute("value", "Importar");
+
+        //Borrar
+        const clearButton = document.createElement("input");
+        clearButton.setAttribute("type", "button");
+        clearButton.setAttribute("value", "Borrar");
+
+
+        // Insertar todo al formulario 
+
+        form.appendChild(legend);
+
+        form.appendChild(labelNombre);
+        form.appendChild(document.createElement("br"));
+        form.appendChild(inputNombre);
+        form.appendChild(document.createElement("br"));
+        
+
+        form.appendChild(labelApellido);
+        form.appendChild(document.createElement("br"));
+        form.appendChild(inputApellido);
+        form.appendChild(document.createElement("br"));
+
+        form.appendChild(labelTelefono);
+        form.appendChild(document.createElement("br"));
+        form.appendChild(inputTelefono);
+        form.appendChild(document.createElement("br"));
+
+        form.appendChild(importButton);
+        form.appendChild(clearButton);
+
+        // Insertar todo al div del formulario
+        divFormulario.appendChild(form);
+        divFormulario.setAttribute("class", "form");
+
+        /* 
+        ** Boton de Renderizar
+        ** 
+        */
+        
+        const rendererButton = document.createElement("input");
+        rendererButton.setAttribute("type", "button");
+        rendererButton.setAttribute("value", "Procesar");
+        rendererButton.setAttribute("class", "renderer");
+
+        /* 
+        ** @Array
+        ** Creamos la funcion que guarde lso datos de los inputs
+        ** en el array
+        */
+
+       contactos = [];
+
+       function importContactos(){
+        let nombre = inputNombre.value.trim();
+        let apellido = inputApellido.value.trim();
+        let telefono = inputTelefono.value.trim();
+
+        if(nombre && apellido && telefono){
+            alert("Datos importados con exito");
+            contactos.push(nombre, apellido, telefono);
+        }
+
+        
+       }
+        
+        /* 
+        ** @Tabla 
+        ** Creamos la funcion que genere la tabla con los datos
+        */
+
+        function generateTable(){
+            const table = document.createElement("table");
+            const tr1 = document.createElement("tr");
+            const thNombre = document.createElement("th");
+            const thApellido = document.createElement("th");
+            const thTelefono = document.createElement("th");
+
+            td = document.createElement("td");
+            tr = document.createElement("tr");
+        
+            thNombre.textContent = "Nombre";
+            thApellido.textContent = "Apellidos";
+            thTelefono.textContent = "Telefono";
+            
+            tr1.appendChild(thNombre);
+            tr1.appendChild(thApellido);
+            tr1.appendChild(thTelefono);
+            table.appendChild(tr1);
+
+            contactos.forEach((contacto, index) => {
+                td.textContent = contacto.nombre;
+                td.textContent = contacto.apellido;
+                td.textContent = contacto.telefono;
+                tr.appendChild(th);
+                table.appendChild(tr);
+            });
+        
+            document.body.appendChild(table);
+
+        }
+
+        // Insertar Todo en el bodys
+        document.body.appendChild(divFormulario);
+        document.body.appendChild(rendererButton);
+        importButton.addEventListener("click", importContactos);
+        rendererButton.addEventListener("click", () => {
+            if (contactos.legend() == 0){
+                alert("no hay contactos");
+                return;
+            } else{
+                generateTable();
+            }
+        });
+        
+    </script>
+</body>
+</html>

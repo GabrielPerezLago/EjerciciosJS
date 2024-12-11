@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Alquileres</title>
+</head>
+<body>
+    
+    <h1>Alquiler de Motos</h1>
+
+    
+    <form action="" name="formu">
+    <h2>Reserva</h2>
+        <label for="fechaRecogida">Fecha de Recogida:</label>
+        <input type="date" id="fechaRecogida" name="fechaRecogida">
+        <label for="fechaEntrega"> Fecha de Entrega:</label>
+        <input type="date" id="fechaEntrega" name="fechaEntrega">
+
+    <h2>Modelos Disponibles</h2>
+        <input type="radio" id="harley" name="moto" value="harley">
+        <label for="harley">Harley Davisoon</label>
+        <br>
+        <input type="radio" id="honda" name="moto" value="honda">
+        <label for="honda">Honda</label>
+        <br>
+        <input type="radio" id="yamaha" name="moto" value="yamaha">
+        <label for="yamaha">Yamaha</label>
+        <br>
+        <br>
+
+        <input type="button" onclick="calculoPrecio()" value="Calcular Precio">
+    </form>
+    <script src="./alquilerMotos.js"></script>
+
+    <p id="test"></p>
+</body>
+</html>

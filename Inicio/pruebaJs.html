@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- 
+        Probando javaScript para que un boton cambie el texto
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba</title>
+    <!-- Tambien se puede linkear un archivo js con la funcion -->
+    <!--
+    <script src="prueba2.js"></script>
+    -->
+    <script>
+        function cambiarTexto(){
+            document.getElementById("prueba").innerHTML = "Otro texto";
+        }
+    </script>
+</head>
+<body>
+    <p id="prueba">Texto Original</p>
+    <button type="button" onclick="cambiarTexto()">Cambiar Texto</button>
+<!-- 
+    Tambien se puede inicializar el javaScript despues
+ -->
+<!--
+    <script>
+        function cambiarTexto() {
+        document.getElementById("prueba").innerHTML = "Otro texto";
+        }
+    </script>
+-->
+</body>
+</html>

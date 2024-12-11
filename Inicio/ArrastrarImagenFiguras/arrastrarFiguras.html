@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrastrar Figuras</title>
+    <style>
+        .contendor{
+            display: inline-block;
+            align-items: flex-end;
+        }
+        
+
+        table{
+            padding: 30px;
+        }
+
+        table, th{
+            border: 1px solid black;
+            width: 600px;
+            height: 200px;
+            
+            
+        }
+
+    
+
+       
+        #imagen{
+            
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <img id="imagen" src="./img/triangulo.jpg" onmousedown="iniciarArrastre(event)" width="100px" height="100px">
+        <img id="imagen" src="./img/circulo.jpg" onmousedown="iniciarArrastre(event)" width="100px" height="100px">
+        <img id="imagen" src="./img/rectangulo.png" onmousedown="iniciarArrastre(event)" width="100px" height="100px">
+    </div>
+
+    <div class="contendorPosiciones">
+        <table>
+            <tr>
+                <th id="triangulo">T</th>
+                <th id="circulo">C</th>
+                <th id="rectangulo">R</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+       let desplazamientoX = 0;
+        let desplazamientoY = 0;
+
+        function iniciarArrastre(evento){
+            if (evento.button !== 0) return;
+
+            evento.preventDefault();
+
+            const imagen = evento.target;
+
+            desplazamientoX = evento.pageX - (parseInt(imagen.style.left) || 0);
+            desplazamientoY = evento.pageY - (parseInt(imagen.style.top || 0));
+
+            imagen.onmousemove = moverImagen;
+            imagen.onmouseup = detenerArrastre;
+
+            moverImagen(evento);
+        }
+
+        function moverImagen(evento){
+            const imagen = evento.target;
+
+            if(evento.buttons !== 1){
+                detenerArrastre();
+                return;
+            }
+
+            imagen.style.left = `${evento.pageX - desplazamientoX}px`;
+            imagen.style.top = `${evento.pageY - desplazamientoY}px`;
+        }
+
+        function detenerArrastre(){
+            const imagen = document.getElementById("imagen");
+
+            imagen.onmousemove = null;
+            imagen.onmouseup = null;
+        }
+
+        function comprobarPosicion(evento){
+            
+            const triangulo = document.getElementById("triangulo");
+            const circulo = document.getElementById("circulo");
+            const rectangulo = document.getElementById("rectangulo");
+
+
+            
+
+            
+        }
+    </script>
+</body>
+</html>
