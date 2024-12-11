@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular dias</title>
+</head>
+<body>
+    <h1>Calcular Dias desde Hoy hasta el siguiente dia</h1>
+    <label for="fecha">CalcularFecha:</label>
+    <input type="date" id="fecha" name="fecha">
+    <input type="button" onclick="getDiffDias()" value="Calcular">
+
+    <p id="print"></p>
+
+    
+    <script>
+// Obtener la fecha actual
+    function getFechaActual() {
+            const fecha = new Date();
+            const dia = fecha.getDate().toString().padStart(2, "0");
+            const mes = (fecha.getMonth() + 1).toString().padStart(2, "0");
+            const anho = fecha.getFullYear();
+
+            return `${anho}-${mes}-${dia}`;
+        }
+
+        const fechaActual = getFechaActual();
+
+        // Calcular diferencia en días
+        function getDiffDias() {
+            const fechaSelect = document.getElementById("fecha").value; // Asegúrate de que el elemento 'fecha' exista
+            if (!fechaSelect) {
+                alert("Por favor selecciona una fecha.");
+                return;
+            }
+
+            const actual = new Date(fechaActual);
+            const select = new Date(fechaSelect);
+            const diferencia = Math.ceil((select - actual) / (1000 * 60 * 60 * 24));
+
+            // Mostrar el resultado en pantalla
+            if (diferencia >= 0) {
+                document.getElementById("print").innerText = `Faltan ${diferencia} día(s) para la fecha seleccionada.`;
+            } else {
+                document.getElementById("print").innerText = "La fecha seleccionada ya pasó.";
+            }
+        }
+    </script>
+
+</body>
+</html>

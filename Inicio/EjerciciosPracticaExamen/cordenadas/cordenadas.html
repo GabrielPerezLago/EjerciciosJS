@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordenadas del Ratón</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Coordenadas del Ratón</h1>
+    <p>Mueve el ratón por la página para ver sus coordenadas:</p>
+    <div id="output">Las coordenadas aparecerán aquí</div>
+
+    <script>
+        // Referencia al div donde se mostrarán las coordenadas
+        const output = document.getElementById("output");
+
+        // Evento para capturar el movimiento del ratón
+        document.addEventListener("mousemove", (event) => {
+            const x = event.pageX; // Coordenada X respecto a la página
+            const y = event.pageY; // Coordenada Y respecto a la página
+
+            // Mostrar las coordenadas en el div
+            output.textContent = `Coordenadas del ratón: X = ${x}, Y = ${y}`;
+        });
+    </script>
+</body>
+</html>

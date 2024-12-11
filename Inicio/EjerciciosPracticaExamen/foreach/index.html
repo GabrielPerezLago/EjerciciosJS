@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css">
+    <title>Asignaturas y Alumnos</title>
+</head>
+<body>
+    
+    <h1>Asignaturas  y Alumnos</h1>
+    <form>
+        <label for="asignaturas">Asignaturas:</label>
+        <input type="text" id="asignaturas" name="asignaturas">
+        <br>
+        <br>
+        <label for="alumnos">Alumnos:</label>
+        <input type="text" id="alumnos" name="alumnos">
+        <br>
+        <br>
+        <input type="button" onclick="listadoDatos()" value="Procesar">
+        <input type="button" onclick="printTabla()" value="Enviar">
+    </form>
+
+    <script>
+// Función para procesar los datos de asignaturas y alumnos
+function listadoDatos() {
+    const asignaturasInput = document.getElementById("asignaturas").value;
+    const alumnosInput = document.getElementById("alumnos").value;
+
+    // Crear arrays de asignaturas y alumnos
+    const asignaturasArray = asignaturasInput.split(",").map(item => item.trim());
+    const alumnosArray = alumnosInput.split(",").map(item => item.trim());
+
+    // Crear un mapa para almacenar las notas de cada alumno
+    const notasMap = new Map();
+
+    // Asignar notas aleatorias a cada alumno para cada asignatura
+    alumnosArray.forEach(alumno => {
+        const notas = new Map();
+        asignaturasArray.forEach(asignatura => {
+            notas.set(asignatura, (Math.random() * 10).toFixed(2)); // Notas entre 0 y 10
+        });
+        notasMap.set(alumno, notas);
+    });
+
+    // Guardar el mapa en una variable global para usar en otras funciones
+    window.notasMap = notasMap;
+    window.asignaturasArray = asignaturasArray;
+
+    // Llamar a la función para mostrar las notas
+    printNotas(notasMap);
+}
+
+// Función para imprimir las notas de los alumnos en pantalla
+function printNotas(notasMap) {
+    const output = document.createElement("div"); // Crear un contenedor para la tabla
+    output.id = "tablaNotas";
+
+    // Crear la tabla
+    const table = document.createElement("table");
+    table.border = "1";
+
+    // Crear encabezados de la tabla
+    const headerRow = document.createElement("tr");
+    headerRow.innerHTML = `<th>Alumno</th>` + 
+        window.asignaturasArray.map(asignatura => `<th>${asignatura}</th>`).join("");
+    table.appendChild(headerRow);
+
+    // Agregar filas de alumnos con sus notas
+    notasMap.forEach((notas, alumno) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${alumno}</td>` + 
+            window.asignaturasArray.map(asignatura => `<td>${notas.get(asignatura)}</td>`).join("");
+        table.appendChild(row);
+    });
+
+    // Reemplazar contenido existente si ya se imprimió antes
+    const existingOutput = document.getElementById("tablaNotas");
+    if (existingOutput) {
+        existingOutput.replaceWith(output);
+    } else {
+        document.body.appendChild(output);
+    }
+
+    output.appendChild(table); // Agregar la tabla al contenedor
+}
+
+// Enlazar funciones al formulario
+document.querySelector("form").addEventListener("submit", e => e.preventDefault());
+
+    </script>
+</body>
+</html>
