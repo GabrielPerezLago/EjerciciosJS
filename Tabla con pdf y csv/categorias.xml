@@ -1,0 +1,11 @@
+<categorias>
+  <categoria id="101">
+    <nombre>Periféricos</nombre>
+  </categoria>
+  <categoria id="102">
+    <nombre>Monitores</nombre>
+  </categoria>
+  <categoria id="103">
+    <nombre>Accesorios</nombre>
+  </categoria>
+</categorias>

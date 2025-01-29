@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ordenar tabla de Productos y Categorías</title>
+  <style>
+    /* Contenedor principal para centrar la tabla (opcional) */
+    #resultado {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    /* Estilo general de la tabla */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Encabezado: fondo oscuro, texto blanco, cursor para indicar que es clicable */
+    thead th {
+      background-color: #2c3e50;
+      color: #ffffff;
+      padding: 10px;
+      cursor: pointer;
+      transition: color 0.3s ease; /* Suaviza el cambio de color al hacer hover */
+    }
+
+    /* Al poner el ratón sobre el encabezado, el color del texto cambia */
+    thead th:hover {
+      color: #3498db; /* azul claro, por ejemplo */
+    }
+
+    /* Filas alternas en el cuerpo de la tabla */
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: #ffffff;
+    }
+
+    /* Estilo de las celdas en el cuerpo de la tabla */
+    tbody td {
+      padding: 8px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>Listado de Productos y Categorías</h1>
+  
+  <!-- Contenedor donde se insertará dinámicamente la tabla -->
+  <div id="resultado"></div>
+
+  <br />
+  <button id="btnExportarCSV">Exportar tabla a CSV</button>
+  <button id="btnExportar">Exportar tabla a PDF</button> 
+  <br />
+  <br />
+  <label for="btnCargarCSV">Cargar archivo CSV: </label>  
+  <input type="file" id="btnCargarCSV" accept=".csv">
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+  <script src="exportarPDF.js"></script>
+  <script src="exportarCSV.js"></script>
+  <script src="cargarCSV.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>

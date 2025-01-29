@@ -1,0 +1,18 @@
+[
+    {
+      "id": 1,
+      "nombre": "Teclado Inalámbrico",
+      "categoriaId": 101
+    },
+    {
+      "id": 2,
+      "nombre": "Ratón Óptico",
+      "categoriaId": 101
+    },
+    {
+      "id": 3,
+      "nombre": "Monitor LED Full HD",
+      "categoriaId": 102
+    }
+  ]
+  
