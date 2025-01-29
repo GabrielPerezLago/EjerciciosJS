@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function procesoAsincrono(callback) {
+            console.log("Proceso iniciado...");
+            setTimeout(function () {
+                const resultado = "Datos obtenidos tras un tiempo de espera";
+                // Invocamos el callback pasándole el resultado
+                callback(resultado);
+            }, 0);
+        }
+        // Definimos el callback para manejar el resultado
+        function manejarResultado(dato) {
+            console.log("Callback manejando el resultado: " + dato);
+        }
+        // Llamamos a la función principal y pasamos nuestro callback
+        procesoAsincrono(manejarResultado);
+        console.log(procesoAsincrono);
+    </script>
+
+</body>
+
+</html>

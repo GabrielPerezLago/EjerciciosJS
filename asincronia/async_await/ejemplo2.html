@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peticion Json Y Parseo XML</title>
+</head>
+
+<body>
+
+    <script>
+
+        async function obtenerDatosYParseoXML(params) {
+            try{
+                const respuestaJSON = await fetch('https://jsonplaceholder.typicode.com/users');
+
+                if (!respuestaJSON.ok) {
+
+                    throw new Error('Error al obtener los Usuarios... ' + respuestaJSON.status);
+
+                }
+
+                const usuarios = await respuestaJSON.json();
+
+                console.log('Usuarios en Json: ', usuarios);
+
+                const xmlString = `
+                    <categorias>
+                        <rol>
+                            <nombre>Administrador</nombre>
+                            <id>10</id>
+                        </rol>
+                        <rol>
+                            <nombre>Usuario</nombre>
+                            <id>25</id>
+                        </rol>
+                    </categoria>
+                `;
+
+                const parser = new DOMParser();
+
+                const xmlDoc = parser.parseFromString(xmlString, 'application/application/xml');
+
+                const roles = xmlDoc.getElementsByTagName('rol');
+
+                for (let i=0; i<roles.length; i++){
+                    const nombre = roles[i].getElementsByTagName('nombre')[0].textContent;
+                    const precio = roles[i].getElementsByTagName('id')[0].textContent;
+                    console.log(`Entrada ${i+1}: ${nombre}, precio: ${precio}`);
+                }
+            }catch (error){
+                console.error('Error en el proceso combinado:', error);
+            }
+
+        }
+
+        obtenerDatosYParseoXML();
+    </script>
+
+</body>
+
+</html>

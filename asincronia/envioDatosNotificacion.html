@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titulo1</title>
+</head>
+
+<body>
+
+    <script>
+        function recogerDatosFormulario(callback) {
+            console.log("Recogiendo datos del formulario...");
+
+            /** Suponemos un retardo de 1s para simular que puede tardar en
+completarse */
+            setTimeout(function () {
+                const datos = {
+                    nombre: "Laura",
+                    email: "laura@example.com"
+                };
+                console.log("Datos del formulario obtenidos.");
+                callback(datos);
+            }
+            , 1000);
+        }
+
+        /** Simula el envío de datos a un servidor. Cuando finaliza,
+invoca el callback. */
+        function enviarDatosAServidor(datos, callback) {
+            console.log(`Enviando los datos de ${datos.nombre} al servidor...`);
+
+            // Simulamos un retardo de 2s
+            setTimeout(function () {
+                console.log(`Datos de ${datos.nombre } enviados correctamente.`);
+                callback();
+            }
+            , 2000);
+        }
+
+        // Simula la notificación al usuario tras completar el envío.
+        function notificarUsuario() {
+            console.log("Notificación: El proceso ha finalizado con éxito.");
+
+            }
+
+        // Encadenamos las llamadas utilizando callbacks
+        recogerDatosFormulario(function (datosRecibidos) {
+            enviarDatosAServidor(datosRecibidos, function () {
+                notificarUsuario();
+            });
+        });
+    </script>
+
+</body>
+
+</html>

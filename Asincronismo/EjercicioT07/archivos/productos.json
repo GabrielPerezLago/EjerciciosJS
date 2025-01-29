@@ -1,0 +1,52 @@
+[
+    {
+        "id" : 1,
+        "nombre": "procesador i9 5GEN",
+        "id_categoria": 1
+    },
+    {
+        "id": 2,
+        "nombre": "Memoria RAM 16GB DDR4",
+        "id_categoria": 2
+    },
+    {
+        "id": 3,
+        "nombre": "Disco SSD 1TB NVMe",
+        "id_categoria": 3
+    },
+    {
+        "id": 4,
+        "nombre": "Placa Base ATX Z790",
+        "id_categoria": 3
+    },
+    {
+        "id": 5,
+        "nombre": "Tarjeta Gráfica RTX 4090",
+        "id_categoria": 2
+    },
+    {
+        "id": 6,
+        "nombre": "Fuente de Alimentación 750W 80+ Gold",
+        "id_categoria": 1
+    },
+    {
+        "id": 7,
+        "nombre": "Teclado Mecánico RGB",
+        "id_categoria": 1
+    },
+    {
+        "id": 8,
+        "nombre": "Monitor 27'' 4K 144Hz",
+        "id_categoria": 4
+    },
+    {
+        "id": 9,
+        "nombre": "Caja para PC ATX con Cristal Templado",
+        "id_categoria": 2
+    },
+    {
+        "id": 10,
+        "nombre": "Ratón Gaming Inalámbrico",
+        "id_categoria": 1
+    }
+]

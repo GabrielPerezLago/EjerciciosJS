@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ComunidadesAutonomas>
+    <ComunidadAutonoma>
+        <ID>1</ID>
+        <Nombre>Galicia</Nombre>
+    </ComunidadAutonoma>
+    <ComunidadAutonoma>
+        <ID>2</ID>
+        <Nombre>Andalucía</Nombre>
+    </ComunidadAutonoma>
+    <ComunidadAutonoma>
+        <ID>3</ID>
+        <Nombre>Cataluña</Nombre>
+    </ComunidadAutonoma>
+</ComunidadesAutonomas>

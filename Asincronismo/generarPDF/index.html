@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tabla"></div>
+    <script>
+        function getData(){
+            fetch('https://jsonplaceholder.typicode.com/posts')
+            .then(function (response){
+                if(!response.ok){
+                    throw new Error(`Error en la solicitud: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(function (data){
+                console.log("Datos obtenidos: ", data);
+            })
+            .catch (function(error){
+                console.error("Hubo un error en la peticion", error);
+            })
+        }
+
+        function printTabla(datos){
+            const tabla = document.createElement("table");
+            tabla.style.borderCollapse = 'collapse';
+            tabla.style.width = '100%';
+            tabla.style.border = '1px solid black';
+
+            const encabezados = ['ID', 'Titulo', 'Contenido'];
+            const filaEncabezados = crearFila(encabezados, true);
+            tabla.appendChild(filaEncabezados);
+
+            datos.forEach((datp) => {
+                const filaDatos = crearFila([dato.id, dato.title, dato.body], false);
+                tabla.appendChild(filaDatos);
+            });
+
+            const contenedor = document.getElementById('tabla');
+            contenedor.appendChild(tabla);
+            
+        }
+
+        getData();
+    </script>
+</body>
+</html>

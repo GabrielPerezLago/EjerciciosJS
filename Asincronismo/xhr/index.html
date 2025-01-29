@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+
+        function cargarDatos(url, callback){
+            let xhr = new XMLHttpRequest();
+
+            xhr.open('GET', url, true);
+
+            if(url.endsWith(".xml")){
+                xhr.responseType = "text";
+                console.log("Interpretado como XML");
+            }else if (url.endsWith(".json")){
+                xhr.responseType= "json";
+                console.log("Interpretado como JSON");
+            } else{
+                console.error("Los datos no an podido ser interpretados");
+                return;
+            }
+
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200){
+                   callback(xhr.response);
+                   console.log("Codigo interpretado con exito"); 
+                }else {
+                    console.error("Error al interpretar el archivo");
+                } 
+            }else {
+                console.error('Error al realizar la solicitud. Código de estado:', xhr.status);
+            }
+
+            xhr.send();
+        }
+
+        cargarDatos("ccaa.xml", function(){
+            console.log("Todo funciona correctamente");
+        } );
+    </script>
+</body>
+</html>

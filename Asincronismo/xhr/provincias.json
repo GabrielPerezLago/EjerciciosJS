@@ -1,0 +1,32 @@
+{
+    "ComunidadesAutonomas": [
+      {
+        "id": 1,
+        "nombre": "Galicia",
+        "Provincias": [
+          { "id": 1, "Nombre": "A Coruña" },
+          { "id": 2, "Nombre": "Lugo" },
+          { "id": 3, "Nombre": "Ourense" },
+          { "id": 4, "Nombre": "Pontevedra" }
+        ]
+      },
+      {
+        "id": 2,
+        "nombre": "Andalucía",
+        "Provincias": [
+          { "id": 5, "Nombre": "Sevilla" },
+          { "id": 6, "Nombre": "Córdoba" },
+          { "id": 7, "Nombre": "Málaga" }
+        ]
+      },
+      {
+        "id": 3,
+        "nombre": "Cataluña",
+        "Provincias": [
+          { "id": 8, "Nombre": "Barcelona" },
+          { "id": 9, "Nombre": "Girona" },
+          { "id": 10, "Nombre": "Tarragona" }
+        ]
+      }
+    ]
+  }

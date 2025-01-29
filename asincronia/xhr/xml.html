@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML</title>
+</head>
+<body>
+    <script>
+        let xhr = new XMLHttpRequest();
+
+        xhr.open('GET', 'https://mocktarget.apigee.net/xml', true);
+        
+        xhr.onreadystatechange = function (){
+            if(xhr.readyState === 4){
+                if(xhr.status === 200){
+                    let xmlDoc = xhr.responseXML;
+                    if (xmlDoc){
+                        let raiz = xmlDoc.getElementsByTagName('raiz')[0];
+                        console.log('Nodo raíz: ', raiz.nodeName);
+                    } else {
+                        console.error('No se a podido interpretar la respuesta como codigo XML');
+                    }
+                }else {
+                    console.error('No se pudo realizar la solicitud de manera exitosa. --- Codigo de Error:' , xhr.status);
+                }
+            }
+        }
+
+        xhr.send();
+    </script>
+</body>
+</html>
