@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ejemplo de Web Workers - Cálculos intensivos</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  
+  <div id="contenedorPrincipal">
+    <h1>Demostración de Web Workers con Cálculos Intensivos</h1>
+
+    
+    <div id="seccionControles">
+      <button id="botonIniciarCalculos">Iniciar Cálculos</button>
+      <p id="estadoCalculos">Estado: A la espera de inicio.</p>
+    </div>
+
+    
+    <div id="seccionInteraccion">
+      <div id="cajaColor">Esto cambia de color sin que los web workers lo bloqueen</div>
+      <button id="botonCambiarColor">Cambiar Color</button>
+    </div>
+
+    
+    <div id="seccionResultados">
+      <h2>Resultados de los Cálculos</h2>
+      <p id="resultadoWorkerA">Resultado Worker A: N/A</p>
+      <p id="resultadoWorkerB">Resultado Worker B: N/A</p>
+    </div>
+  </div>
+
+  <!-- Script principal -->
+  <script src="script.js"></script>
+</body>
+</html>

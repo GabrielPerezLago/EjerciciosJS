@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla de Números</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    button {
+      margin: 20px;
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 30%;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+    }
+
+    td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // Función para generar un array de 10 números aleatorios
+    function generarNumerosAleatorios() {
+      return Array.from({ length: 10 }, () => Math.floor(Math.random() * 100) + 1);
+    }
+
+    // Crear elementos principales dinámicamente
+    const body = document.body;
+
+    // Crear título
+    const titulo = document.createElement("h1");
+    titulo.textContent = "Procesar Números Aleatorios";
+    body.appendChild(titulo);
+
+    // Crear botón
+    const boton = document.createElement("button");
+    boton.textContent = "Procesar Números";
+    body.appendChild(boton);
+
+    // Crear contenedor para la tabla
+    const contenedor = document.createElement("div");
+    body.appendChild(contenedor);
+
+    // Función para crear y mostrar la tabla
+    boton.addEventListener("click", () => {
+      contenedor.innerHTML = ""; // Limpiar tabla anterior
+
+      const numeros = generarNumerosAleatorios(); // Generar nuevos números aleatorios
+
+      // Crear tabla
+      const tabla = document.createElement("table");
+
+      // Crear cabecera
+      const thead = document.createElement("thead");
+      const filaCabecera = document.createElement("tr");
+      const celdaCabecera = document.createElement("th");
+      celdaCabecera.textContent = "Números";
+      filaCabecera.appendChild(celdaCabecera);
+      thead.appendChild(filaCabecera);
+      tabla.appendChild(thead);
+
+      // Crear cuerpo de la tabla
+      const tbody = document.createElement("tbody");
+      numeros.forEach(numero => {
+        const fila = document.createElement("tr");
+        const celda = document.createElement("td");
+        celda.textContent = numero;
+        fila.appendChild(celda);
+        tbody.appendChild(fila);
+      });
+
+      tabla.appendChild(tbody);
+      contenedor.appendChild(tabla);
+    });
+  </script>
+</body>
+</html>
