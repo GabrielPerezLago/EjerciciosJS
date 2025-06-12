@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen - Gabriel Pérez Lago</title>
+    <style>
+        *{
+            padding: 5px;
+        }
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid black;
+        }
+
+        th:hover, td:hover{
+            background-color: rgba(128, 128, 128, 0.26);
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+
+        function main() {
+            const GLOBAL_TABLE = createBasicElement('table');
+            const formContainer = createBasicElement('div');
+            const tableContainer = createBasicElement('div');
+            const clockContainer = createBasicElement('div');
+            const h1 = createBasicElement('h1', 'Gestion de Productos');
+
+            const form = createBasicElement('form');
+            const labelProductos  =  createBasicElement('label', 'Inserte Productos', 'for', 'products');
+            const inputProductos = createInput('text', 'products', null, 'producst');
+            const inputBotonProductos = createInput('button', 'submit', 'Procesar', 'botton');
+
+            inputBotonProductos.addEventListener('click',() => {
+                GLOBAL_TABLE.innerHTML  =  "";
+                
+                datosArr = inputProductos.value.split(',');
+                columnasArr = ['Productos', 'Fecha'];
+
+                const {thead, tbody} = createTable(columnasArr, datosArr);
+
+                appendMultipleChild(GLOBAL_TABLE, [thead, tbody]);
+                tableContainer.appendChild(GLOBAL_TABLE);
+            });
+
+            const inputRadioNombre = createInput('radio', 'nombre', null, 'nombre-radio');
+            const inputRadioFecha = createInput('radio', 'fecha', null, 'fecha-radio');
+            const labelOrderNombre = createBasicElement('label', 'Nombre', 'for', 'nombre');
+            const labelOrderFecha = createBasicElement('lable', 'Fecha',  'for', 'fecha');
+
+            formArr = [labelProductos, inputProductos, inputBotonProductos, inputRadioNombre, labelOrderNombre, inputRadioFecha, labelOrderFecha];
+            appendMultipleChild(form, formArr);
+            formContainer.appendChild(form);
+
+
+            // Reloj
+            const clock = createBasicElement('p');
+            setInterval(() => {
+                const date = new Date();
+                
+                const segundos = date.getSeconds().toString().padStart(2, "0");
+                const minutos = date.getMinutes().toString().padStart(2, "0");
+                const horas = date.getHours().toString().padStart(2, "0");
+
+                clock.textContent = `${horas}:${minutos}:${segundos}`;
+            }, 1000);
+            clockContainer.appendChild(clock);
+
+            //Boton de Lipieza
+            const inputClean = createInput('button', 'clean', 'Limpiar Applicacion', 'clean');
+            inputClean.addEventListener('click', () => {
+                GLOBAL_TABLE.innerHTML = "";
+                inputProductos.value = "";
+
+                alert('La aplicacion se a reiniciado');
+            });
+            
+
+            bodyArr = [h1, formContainer, tableContainer, clockContainer, inputClean];
+            appendMultipleChild(document.body, bodyArr);
+
+        }
+
+        /**
+         * {Element}
+         * Funcion que crea elementos de todo tipo
+         */
+
+        function createBasicElement(element = null, textContent = null, attribute = null, attributeText = null) {
+            if (element == null) {
+                return;
+            }
+
+            element = document.createElement(element);
+
+            element.textContent = textContent ?? '';
+            if (attribute !== null && attributeText !== null) {
+                element.setAttribute(attribute, attribute);
+            }
+
+            return element; 
+        }
+
+        /**
+         * {Inputs}
+         * Funcion que facilita la creaciond einputs
+         */
+        function createInput(type = null, name = null, value = null, id = null) {
+            let input = document.createElement('input');
+            input.type = type ?? 'text';
+            input.value = value ?? '';
+            input.id = value ?? '';
+            return input;
+        }
+
+        function appendMultipleChild(father, arrChild = []) {
+            if (arrChild.length === 0){
+                return;
+            }
+
+            arrChild.forEach(child => {
+                father.appendChild(child);
+            });
+        }
+
+
+        function createTable(arrColumnas = [], arrDatos = []) {
+            if (arrColumnas.length == 0 || arrDatos.length == 0 ){
+                return;
+            }
+
+            const thead = createBasicElement('thead');
+            const tbody = createBasicElement('tbody');
+            const tr = createBasicElement('tr');
+            
+            arrColumnas.forEach(columna => {
+                const th = createBasicElement('th', columna);
+                tr.appendChild(th);
+            });
+            thead.appendChild(tr);
+            const fecha = new Date();
+            datos = arrDatos.map(dato =>({
+                nombre: dato,
+                fecha: fecha.toDateString()
+            }));
+
+            datos.forEach(dato =>{
+                const trDato = createBasicElement('tr');
+                const tdNombre = createBasicElement('td', dato.nombre);
+                const tdFecha = createBasicElement('td', dato.fecha);
+
+                appendMultipleChild(trDato, [tdNombre, tdFecha]);
+                tbody.appendChild(trDato);
+            });
+
+            return {thead, tbody};
+        }
+
+        addEventListener('load', main);
+
+    </script>
+</body>
+
+</html>
